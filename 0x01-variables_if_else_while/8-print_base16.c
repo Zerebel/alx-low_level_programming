@@ -14,7 +14,7 @@ int main(void)
 	putchar(num + '0');
 	num++;
 	}
-	
+
 	num = 0;
 	while (num < 6)
 	{
