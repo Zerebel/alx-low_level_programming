@@ -45,10 +45,7 @@ int main(void)
 		n1_h2 = n2_h2;
 		n2_h1 = h1;
 		n2_h2 = h2;
-		if (i % 10 == 8)
-			printf("\n");
 	}
 	printf("\n");
 	return (0);
 }
-
