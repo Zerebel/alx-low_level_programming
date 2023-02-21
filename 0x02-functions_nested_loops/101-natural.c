@@ -1,13 +1,11 @@
 #include <stdio.h>
-#include "main.h"
 
 /**
-* int main - Entry point
+* main - Entry point
 *
 * Return: Always 0 (Success)
 */
 int main(void)
-{
 {
 int n, sum = 0;
 for (n = 0; n < 1024; n++)
