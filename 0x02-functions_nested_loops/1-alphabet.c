@@ -11,8 +11,8 @@ char letter = 'a';
 
 while (letter <= 'z')
 {
-_putchar(letter);
+_putchar (letter);
 letter++;
 }
-_putchar('\n');
+_putchar ('\n');
 }
