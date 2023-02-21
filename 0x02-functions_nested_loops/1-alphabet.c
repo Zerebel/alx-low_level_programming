@@ -1,23 +1,9 @@
-#include <stdio.h>
-
-/*Function Declaration*/
-void print_alphabet(void);
-
+#include "main.h"
 /**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
-int main(void)
-{
-	print_alphabet();
-	return (0);
-}
-
-/**
- * print_alphabet - second function
+ * print_alphabet - print the alphabet
+ * in lowercase
  *
- * Return : 0
+ * Return : Null
  */
 void print_alphabet(void)
 {
@@ -25,8 +11,8 @@ char letter = 'a';
 
 while (letter <= 'z')
 {
-putchar(letter);
+_putchar(letter);
 letter++;
 }
-putchar('\n');
+_putchar('\n');
 }
