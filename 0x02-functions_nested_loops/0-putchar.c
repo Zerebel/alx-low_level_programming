@@ -1,21 +1,21 @@
-#include <stdio.h>
+#include "main.h"
 
 /**
-* main - Entry point
+* main - print _putchar
 *
 * Return: Always 0 (Success)
 */
 int main(void)
 {
-	putchar('_');
-	putchar('p');
-	putchar('u');
-	putchar('t');
-	putchar('c');
-	putchar('h');
-	putchar('a');
-	putchar('r');
-	putchar('\n');
+	int num=0;
+	char word[] = "_putchar";
+
+	while (num < 8)
+	{
+	_putchar(word[num]);
+	num++;
+	}
+	_putchar('\n');
 	return (0);
 }
 
