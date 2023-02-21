@@ -7,7 +7,7 @@
 */
 int main(void)
 {
-	int num=0;
+	int num = 0;
 	char word[] = "_putchar";
 
 	while (num < 8)
