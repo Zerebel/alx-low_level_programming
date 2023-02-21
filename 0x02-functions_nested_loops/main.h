@@ -11,3 +11,4 @@ void print_alphabet_x10(void);
 int _islower(int num);
 int _isalpha(int num);
 int print_sign(int n);
+int _abs(int n);
