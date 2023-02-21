@@ -1,23 +1,10 @@
-#include <stdio.h>
-/*Function declaration*/
-void print_alphabet_x10(void);
-
+#include <main.h>
 /**
-* main - Entry point
+* print_alphabet_x10 - print lowercase alphabet
+* 10 times
 *
-* Return: Always 0 (Success)
+* Return: Null
 */
-int main(void)
-{
-	print_alphabet_x10();
-	return (0);
-}
-
-/**
- * print_alphabet_x10 - function
- *
- * Return: Always 0
- */
 void print_alphabet_x10(void)
 {
 int i = 0;
