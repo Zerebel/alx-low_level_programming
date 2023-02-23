@@ -1,20 +1,28 @@
 #include <stdio.h>
 
-int main(void) {
-    long int n = 612852475143;
-    int i = 2, largest_prime_factor = 0;
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
 
-    while (i <= n) {
-        if (n % i == 0) {
-            n /= i;
-            largest_prime_factor = i;
-        } else {
-            i++;
-        }
-    }
+int main(void)
+{
+long int n = 612852475143;
+long int i;
 
-    printf("%d\n", largest_prime_factor);
-
-    return 0;
+while (n % 2 == 0)
+{
+n /= 2;
 }
+for (i = 3; i <= n; i += 2)
+{
+while (n % i == 0 && i != n)
+{
+n /= i;
+}
+}
+printf("%ld\n", n);
 
+return (0);
+}
