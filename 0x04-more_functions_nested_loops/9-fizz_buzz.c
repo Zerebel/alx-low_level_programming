@@ -23,7 +23,7 @@ int main(void)
 		{
 		printf("%d ", num);
 		}
-	num ++;
+	num++;
 	}
 	printf("\n");
 	return (0);
