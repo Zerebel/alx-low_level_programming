@@ -1,4 +1,0 @@
-#!/bin/bash
-read -p "Enter new test file name: " file
-
-vi test/$file
