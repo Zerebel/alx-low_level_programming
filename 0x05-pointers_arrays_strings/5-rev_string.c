@@ -9,15 +9,15 @@ void change_char(char *a, char *b);
 */
 void rev_string(char *s)
 {
-        int len = _strlen(s) - 1;
-	int i = 0;
+int len = _strlen(s) - 1;
+int i = 0;
 
-        while (len > i)
-        {
-        change_char(s + len, s + i);
-        len--;
-	i++;
-        }
+while (len > i)
+{
+change_char(s + len, s + i);
+len--;
+i++;
+}
 }
 
 /**
@@ -38,10 +38,9 @@ return (len);
 }
 
 /**
- * chnge_char - change address of char
- * 
- * @a - char 1
- * @b - char 2
+ * change_char - change address of char
+ * @a: char 1
+ * @b: char 2
  * Return: Null
  */
 void change_char(char *a, char *b)
