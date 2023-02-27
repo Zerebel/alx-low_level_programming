@@ -4,7 +4,7 @@
  *
  * @str: pointer to chars variable
  * Return - None;
-*/
+ */
 void _puts(char *str)
 {
 while (*str)
