@@ -1,23 +1,30 @@
 /**
- * rot13 - Encodes a string using ROT13 encryption
- * @str: String to be encoded
+ * rot13 - Encodes a string using rot13.
+ * @s: The string to be encoded.
  *
- * Return: Pointer to the encoded string
+ * Return: A pointer to the encoded string.
  */
-char *rot13(char *str)
+char *rot13(char *s)
 {
-int i = 0;
-char *p = str;
+int i, j;
+char letters[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+char rot13[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-while (*p != '\0')
+i = 0;
+while (s[i])
 {
-if ((*p >= 'a' && *p <= 'm') || (*p >= 'A' && *p <= 'M'))
-*p += 13;
-else if ((*p >= 'n' && *p <= 'z') || (*p >= 'N' && *p <= 'Z'))
-*p -= 13;
-
-p++;
+j = 0;
+while (letters[j])
+{
+if (s[i] == letters[j])
+{
+s[i] = rot13[j];
+break;
+}
+j++;
+}
 i++;
 }
-return (str);
+
+return (s);
 }
