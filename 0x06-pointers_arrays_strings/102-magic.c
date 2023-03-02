@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/**
+ * main - print a number
+ *
+ * Return: 0 Always (Success)
+ */
 int main(void)
 {
 int n;
