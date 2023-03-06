@@ -24,7 +24,7 @@ a++;
 }
 
 if (!*a)
-return (count)
+return (count);
 s++;
 }
 return (count);
