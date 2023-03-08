@@ -24,10 +24,10 @@ return (palindrome_checker(start + 1, end - 1));
  */
 int is_palindrome(char *s)
 {
+char *end = s;
+	
 if (*s == '\0')
 return (1);
-
-char *end = s;
 
 while (*end != '\0')
 {
