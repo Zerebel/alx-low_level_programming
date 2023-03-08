@@ -37,10 +37,11 @@ char *end_of_string(char *s)
  */
 int is_palindrome(char *s)
 {
+char *end = end_of_string(s);
+
 	if (*s == '\0')
 		return (1);
 
-char *end = end_of_string(s);
 return (palindrome_checker(s, end - 1));
 }
 
