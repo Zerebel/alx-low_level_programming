@@ -1,6 +1,22 @@
 #include "main.h"
 
 /**
+ * palindrome_checker - checks if a string is a palindrome recursively
+ * @start: a pointer to the start of the string
+ * @end: a pointer to the end of the string
+ *
+ * Return: (1) if s is a palindrome, (0) otherwise
+ */
+int palindrome_checker(char *start, char *end)
+{
+if (*start != *end)
+return (0);
+if (start >= end)
+return (1);
+return (palindrome_checker(start + 1, end - 1));
+}
+
+/**
  * is_palindrome - checks if a string is a palindrome
  * @s: the string to check
  *
@@ -8,15 +24,15 @@
  */
 int is_palindrome(char *s)
 {
-int length = 0, i = 0;
-
-while (s[length] != '\0')
-length++;
-
-while (i < length / 2)
-if (s[i] != s[length - i - 1])
-return (0);
-else
-i++;
+if (*s == '\0')
 return (1);
+
+char *end = s;
+
+while (*end != '\0')
+{
+end++;
 }
+return (palindrome_checker(s, end - 1));
+}
+
