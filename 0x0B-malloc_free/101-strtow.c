@@ -4,52 +4,76 @@
 #include <string.h>
 
 /**
+* count_word - counts the number of words in a string
+* @s: string to count words in
+*
+* Return: the number of words in the string
+*/
+int count_word(char *s)
+{
+int flag = 0, c = 0, w = 0;
+
+while (*s != '\0')
+{
+if (*s == ' ')
+flag = 0;
+else if (flag == 0)
+{
+flag = 1;
+w++;
+}
+s++;
+}
+return (w);
+}
+
+/**
 * strtow - splits a string into words
 * @str: string to split
 *
-* Return: pointer to an array of strings (words)
+* Return: pointer to an array of strings (Success)
+* or NULL (Error)
 */
 char **strtow(char *str)
 {
-char **words, *word;
-int i = 0, j = 0, k = 0, len = 0, wordcount = 0;
+char **matrix, *tmp;
+int i = 0, k = 0, len = 0, words = 0, c = 0, start = 0, end = 0;
 
-if (str == NULL || *str == '\0')
+while (*(str + len))
+len++;
+words = count_word(str);
+if (words == 0)
 return (NULL);
-len = strlen(str);
-words = malloc((len + 1) * sizeof(char *));
-if (words == NULL)
+
+matrix = (char **)malloc(sizeof(char *) * (words + 1));
+if (matrix == NULL)
 return (NULL);
-while (str[i] != '\0')
+
+while (i <= len)
 {
-if (str[i] != ' ')
+if (str[i] == ' ' || str[i] == '\0')
 {
-j = i;
-while (str[j] != ' ' && str[j] != '\0')
-j++;
-len = j - i + 1;
-word = malloc(sizeof(char) * len);
-if (word == NULL)
+if (c)
 {
-while (--wordcount >= 0)
-free(words[wordcount]);
-free(words);
+end = i;
+tmp = (char *)malloc(sizeof(char) * (c + 1));
+if (tmp == NULL)
 return (NULL);
-}
-k = 0;
-while (i < j)
-{
-word[k] = str[i];
-i++;
+while (start < end)
+*tmp++ = str[start++];
+*tmp = '\0';
+matrix[k] = tmp - c;
 k++;
+c = 0;
 }
-word[k] = '\0';
-words[wordcount] = word;
-wordcount++;
 }
-else
+else if (c++ == 0)
+start = i;
 i++;
 }
-words[wordcount] = NULL;
-return (words);
+
+matrix[k] = NULL;
+
+return (matrix);
 }
+
