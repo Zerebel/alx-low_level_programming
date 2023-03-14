@@ -1,101 +1,50 @@
 #include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
 
 /**
-*strtow - splits a stirng into words
-*@str: string to be splitted
+* strtow - splits a string into words
+* @str: string to split
 *
-*Return: pointer to the array of splitted words
+* Return: pointer to an array of strings (words)
 */
-
 char **strtow(char *str)
 {
-char **split;
-int i, j = 0, temp = 0, size = 0, words = num_words(str);
+char **words, *word;
+int i, j, k, len, wordcount;
 
-if (words == 0)
+if (str == NULL || *str == '\0')
 return (NULL);
-split = (char **) malloc(sizeof(char *) * (words + 1));
-if (split != NULL)
+len = strlen(str);
+words = malloc((len + 1) * sizeof(char *));
+if (words == NULL)
+return (NULL);
+i = 0, wordcount = 0;
+while (str[i] != '\0')
 {
-for (i = 0; i <= len(str) && words; i++)
+if (str[i] != ' ')
 {
-if ((str[i] != ' ') && (str[i] != '\0'))
-size++;
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-split[j] = (char *) malloc(sizeof(char) * size + 1);
-if (split[j] != NULL)
-{
-while (temp < size)
-{
-split[j][temp] = str[(i - size) +temp];
-temp++;
-}
-split[j][temp] = '\0';
-size = temp = 0;
+j = i;
+while (str[j] != ' ' && str[j] != '\0')
 j++;
-}
-else
+len = j - i + 1;
+word = malloc(sizeof(char) * len);
+if (word == NULL)
 {
-while (j-- >= 0)
-free(split[j]);
-free(split);
+while (--wordcount >= 0)
+free(words[wordcount]);
+free(words);
 return (NULL);
 }
-}
-}
-split[words] = NULL;
-return (split);
-}
-else
-return (NULL);
-}
-
-
-/**
-* num_words - counts the number of words in str
-*@str: string to be used
-*
-*Return: number of words
-*/
-int num_words(char *str)
-{
-int i = 0, words = 0;
-
-while (i <= len(str))
-{
-if ((str[i] != ' ') && (str[i] != '\0'))
-{
-i++;
-}
-else if (((str[i] == ' ') || (str[i] == '\0')) && i && (str[i - 1] != ' '))
-{
-words += 1;
-i++;
+k = 0;
+while (i < j)
+word[k++] = str[i++];
+word[k] = '\0';
+words[wordcount++] = word;
 }
 else
-{
 i++;
 }
-}
+words[wordcount] = NULL;
 return (words);
-}
-
-/**
-* len - returns length of str
-*@str: string to be counted
-*
-* Return: length of the string
-*/
-
-int len(char *str)
-{
-int len = 0;
-
-if (str != NULL)
-{
-while (str[len])
-len++;
-}
-return (len);
 }
